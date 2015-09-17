@@ -1,0 +1,80 @@
+﻿@model HousePriceCalculator.Models.BoroughYearVm
+
+@{
+    ViewBag.Title = "Home Page";
+    bool graphDataReady = ViewBag.GraphDataReady;       
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>House Price Calculator</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>    
+</head>
+<body>
+    <div id="allText">
+        <h2 class="mainText">How will your London house price grow?</h2>
+        <p class="mainText">This calculator gives you an idea of how the value of your house might have changed over time.</p>
+        <p class="mainText">
+            If you enter the date of purchase (or valuation) of your house, the amount and the London borough that it is in, you will be shown a graph of your house's estimated value over time.
+        </p>
+
+        <div class="container mainDisplay">
+            <div class="user-input col-xs-5 col-md-5 col-lg-5">
+
+                @using (Html.BeginForm())
+                {
+                    <div id="labelsColumn">
+                        <label class="mainText" for="year">Date of purchase or valuation:</label>
+                        <br />
+                        <br />
+                        <label class="mainText" for="priceValue">Price or valuation:</label>
+                        <br />
+                        <br />
+                        <label class="mainText" for="borough">London borough:</label>
+                    </div>
+                    <div id="inputBoxesColumn">
+                        @Html.DropDownListFor(model => model.selectedYear, new SelectList(Model.Year, "Value", "Text"), new { @class = "inputs" })
+                        <br />
+                        <br />
+                        <input class="inputs" id="priceValue" name="priceValue" type="text" value="" pattern="[0-9]*" required autofocus placeholder="100000" title="Please enter a number with no commas or spaces" />
+                        <br />
+                        <br />
+                        @Html.DropDownListFor(model => model.selectedBorough, new SelectList(Model.Borough, "Value", "Text"), new { @class = "inputs" })
+                        <br />
+                        <br />
+                        <br />
+                        <input class="inputs" type="submit" value="Show House Price Change" />
+                    </div>
+                }
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+            </div>
+            <div class="empty-column col-xs-1 col-md-1 col-lg-1">
+            </div>
+            <div class="canvas-holder col-xs-5 col-md-5 col-lg-5">
+                @if (graphDataReady)
+                {
+                    @Html.Partial("_ShowGraph", Model)
+                }
+                else
+                {
+                    <img src="~/Content/Images/graphSample.jpg" width="440" height="340"/>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

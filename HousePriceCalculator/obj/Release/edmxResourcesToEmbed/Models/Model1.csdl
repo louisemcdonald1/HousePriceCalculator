@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="louisemc_hpc2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Borough">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PriceChanges" Relationship="Self.FK_PriceChanges_Borough" FromRole="Borough" ToRole="PriceChanges" />
+  </EntityType>
+  <EntityType Name="PriceChanx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Change" Type="Double" />
+    <Property Name="BoroughId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Borough" Relationship="Self.FK_PriceChanges_Borough" FromRole="PriceChanges" ToRole="Borough" />
+  </EntityType>
+  <Association Name="FK_PriceChanges_Borough">
+    <End Role="Borough" Type="Self.Borough" Multiplicity="1" />
+    <End Role="PriceChanges" Type="Self.PriceChanx" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Borough">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PriceChanges">
+        <PropertyRef Name="BoroughId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="louisemc_hpc2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Boroughs" EntityType="Self.Borough" />
+    <EntitySet Name="PriceChanges" EntityType="Self.PriceChanx" />
+    <AssociationSet Name="FK_PriceChanges_Borough" Association="Self.FK_PriceChanges_Borough">
+      <End Role="Borough" EntitySet="Boroughs" />
+      <End Role="PriceChanges" EntitySet="PriceChanges" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

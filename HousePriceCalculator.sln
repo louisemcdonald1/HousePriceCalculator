@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousePriceCalculator", "HousePriceCalculator\HousePriceCalculator.csproj", "{597D2750-F5DD-4D31-9AE4-7D6C6C3CB438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousePriceCalculator.Tests", "HousePriceCalculator.Tests\HousePriceCalculator.Tests.csproj", "{F6A11FCC-D278-4F73-9CE6-1DDDE18243D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{597D2750-F5DD-4D31-9AE4-7D6C6C3CB438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{597D2750-F5DD-4D31-9AE4-7D6C6C3CB438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{597D2750-F5DD-4D31-9AE4-7D6C6C3CB438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{597D2750-F5DD-4D31-9AE4-7D6C6C3CB438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A11FCC-D278-4F73-9CE6-1DDDE18243D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A11FCC-D278-4F73-9CE6-1DDDE18243D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A11FCC-D278-4F73-9CE6-1DDDE18243D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A11FCC-D278-4F73-9CE6-1DDDE18243D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

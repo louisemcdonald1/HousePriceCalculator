@@ -1,0 +1,26 @@
+﻿@*@model IEnumerable<HousePriceCalculator.Models.Borough>*@
+
+@{
+    ViewBag.Title = "Home Page";
+
+    int[] graphNumbersInput = ViewBag.GraphNumbers;
+    int[] graphYearsInput = ViewBag.GraphYears;
+
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/chart.min.js"></script>
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+<script type="text/javascript">
+
+        var graphNumbers = [@Html.Raw(String.Join(",", graphNumbersInput.Select(i => "'" + i + "'")))];
+        var graphLabels = [@Html.Raw(String.Join(",", graphYearsInput.Select(i => "'" + i + "'")))];
+        //var graphReady = true;
+
+</script>
+<div class="myChart canvas-holder col-xs-5 col-md-5 col-lg-5">
+    <canvas id="myChart" height="300" width="400"></canvas>
+</div>
+<script src="~/Scripts/main.js"></script>
+
+
+

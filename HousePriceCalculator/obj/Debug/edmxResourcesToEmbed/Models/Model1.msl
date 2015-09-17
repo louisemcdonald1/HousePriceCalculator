@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="louisemc_hpc2ModelStoreContainer" CdmEntityContainer="louisemc_hpc2Entities">
+    <EntitySetMapping Name="Boroughs">
+      <EntityTypeMapping TypeName="louisemc_hpc2Model.Borough">
+        <MappingFragment StoreEntitySet="Borough">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceChanges">
+      <EntityTypeMapping TypeName="louisemc_hpc2Model.PriceChanx">
+        <MappingFragment StoreEntitySet="PriceChanges">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Change" ColumnName="Change" />
+          <ScalarProperty Name="BoroughId" ColumnName="BoroughId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

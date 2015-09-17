@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/favicon.ico" rel="icon" />
+    <title>House Price Calculator</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    
+    <div class="container body-content">
+        @RenderBody()
+        
+        
+    </div>
+    <footer class="mainText">
+        <p>&copy; @DateTime.Now.Year - Louise McDonald. The accuracy of this calculator cannot be guaranteed, and it should not be relied on to make financial decisions.  Past data on house price growth by borough is from the Land Registry, predictions of future growth are based on reasonable extrapolations from predictions by Savill's Estate Agency (published July 2015). </p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

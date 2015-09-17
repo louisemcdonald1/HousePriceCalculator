@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="louisemc_hpc2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Borough">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PriceChanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Change" Type="float" />
+    <Property Name="BoroughId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PriceChanges_Borough">
+    <End Role="Borough" Type="Self.Borough" Multiplicity="1" />
+    <End Role="PriceChanges" Type="Self.PriceChanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Borough">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PriceChanges">
+        <PropertyRef Name="BoroughId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="louisemc_hpc2ModelStoreContainer">
+    <EntitySet Name="Borough" EntityType="Self.Borough" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PriceChanges" EntityType="Self.PriceChanges" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PriceChanges_Borough" Association="Self.FK_PriceChanges_Borough">
+      <End Role="Borough" EntitySet="Borough" />
+      <End Role="PriceChanges" EntitySet="PriceChanges" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
